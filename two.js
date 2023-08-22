@@ -1,8 +1,6 @@
 var readlineSync = require("readline-sync");
-
 let num = 10;
 let n = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
 let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 
 let shipBuild = (letters) => {
@@ -12,27 +10,6 @@ let shipBuild = (letters) => {
     });
     return ship;
   });
-};
-function shipSelection(gameBoard) {
-  return gameBoard[Math.floor(Math.random() * 10)];
-}
-
-let shipNameStringCheckForCounter = (
-  fullShips,
-  gameBoard,
-  row,
-  col,
-  counter
-) => {
-  for (let unit = 0; unit < fullShips.length; unit++) {
-    if (fullShips[unit] === gameBoard[row][col]) {
-      fullShips[unit].name = "";
-    }
-
-    if (fullShips[unit].name === "") {
-      counter--;
-    }
-  }
 };
 
 let cord;
@@ -209,7 +186,6 @@ function theBattleShipGame() {
   let ships = [];
 
   let shipGroups = [];
-  //ship assignment function
 
   const c1 = Math.floor(Math.random() * 11);
   const c2 = Math.floor(Math.random() * 5);
@@ -219,8 +195,6 @@ function theBattleShipGame() {
 
   for (let row = 0; row < rows.length; row++) {
     for (let col = 0, boat = []; col < rows[row].length; col++) {
-      ///
-
       const condition1 = [
         col === 0,
         col === 1,
@@ -234,7 +208,6 @@ function theBattleShipGame() {
         col === 9,
       ];
 
-      ///condition1[c1]
       if (row === 0 && condition1[c1]) {
         ships.push(rows[row][col]);
         boat = [];
@@ -243,7 +216,7 @@ function theBattleShipGame() {
         rows[row][col].name = "saleBoat";
         rows[row][col].ship = true;
       }
-      /////
+
       const condition2 = [
         col === 0 || col === 1,
         col === 2 || col === 3,
@@ -252,7 +225,6 @@ function theBattleShipGame() {
         col === 8 || col === 9,
       ];
 
-      ////
       if (row === 1 && condition2[c2]) {
         ships.push(rows[row][col]);
         boat = [];
@@ -262,15 +234,12 @@ function theBattleShipGame() {
         rows[row][col].ship = true;
       }
 
-      ////
       const condition3 = [
         col === 0 || col === 1 || col === 2,
         col === 3 || col === 4 || col === 5,
         col === 6 || col === 7 || col === 8,
         col === 7 || col === 8 || col === 9,
       ];
-
-      ////
 
       if (row === 2 && condition3[c3]) {
         ships.push(rows[row][col]);
@@ -281,15 +250,11 @@ function theBattleShipGame() {
         rows[row][col].ship = true;
       }
 
-      /////
-
       const condition4 = [
         col === 0 || col === 1 || col === 2 || col === 3,
         col === 4 || col === 5 || col === 6 || col === 7,
         col === 6 || col === 7 || col === 8 || col === 9,
       ];
-
-      ////////////////////////////
 
       if (row === 3 && condition4[c4]) {
         ships.push(rows[row][col]);
@@ -299,13 +264,11 @@ function theBattleShipGame() {
         rows[row][col].name = "tankBoat";
         rows[row][col].ship = true;
       }
-      /////////////////////////////
+
       const condition5 = [
         col === 0 || col === 1 || col === 2 || col === 3 || col === 4,
         col === 5 || col === 6 || col === 7 || col === 8 || col === 9,
       ];
-
-      ///////
 
       if (row === 4 && condition5[c5]) {
         ships.push(rows[row][col]);
@@ -353,8 +316,6 @@ function theBattleShipGame() {
 
     return boatArray;
   };
-
-  let fullShips = shipUnits(shipGroups); //cant intterate using loop if function returns an array?
 
   var start = readlineSync.question("Press any key to start the game.");
 
@@ -453,7 +414,6 @@ function theBattleShipGame() {
         gameBoard[row][col].hit = false;
         gameBoard[row][col].ship = false;
         start = true;
-        fullShips = shipUnits(shipGroups);
       }
     }
 
