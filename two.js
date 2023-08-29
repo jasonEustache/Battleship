@@ -155,7 +155,7 @@ function theBattleShipGame() {
   let randomXYBoard = [boardX[0], boardY];
 
   function randomBoard(randomXYBoard) {
-    randomXYBoard = randomXYBoard[Math.floor(Math.random() * 2)];
+    randomXYBoard = randomXYBoard[Math.floor(Math.random() * 1)];
     return randomXYBoard;
   }
 
@@ -187,7 +187,7 @@ function theBattleShipGame() {
 
   let shipGroups = [];
 
-  const c1 = Math.floor(Math.random() * 11);
+  const c1 = Math.floor(Math.random() * 10);
   const c2 = Math.floor(Math.random() * 5);
   const c3 = Math.floor(Math.random() * 4);
   const c4 = Math.floor(Math.random() * 3);
@@ -372,26 +372,30 @@ function theBattleShipGame() {
             gameBoard[row][col].count++;
 
             unit--;
+            console.log(
+              `Hit. You have sunk a ${gameBoard[row][col].name} unit.`
+            );
 
             if (unit === 14) {
               counter--;
+              console.log(`${counter} ships remaining.`);
             }
             if (unit === 12) {
               counter--;
+              console.log(`${counter} ships remaining.`);
             }
             if (unit === 9) {
               counter--;
+              console.log(`${counter} ships remaining.`);
             }
             if (unit === 5) {
               counter--;
+              console.log(`${counter} ships remaining.`);
             }
             if (unit === 0) {
               counter--;
+              console.log(`${counter} ships remaining.`);
             }
-
-            console.log(
-              `Hit. You have sunk a ${gameBoard[row][col].name} unit. ${counter} ships remaining.`
-            );
 
             if (counter === 0) {
               start = false;

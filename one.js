@@ -74,7 +74,7 @@ function loopBreak(gameBoard, counterCallBack) {
   }
 }
 
-function resetGameUpdates(gameBoard) {
+function resetGameUpdates(gameBoard, row, col) {
   gameBoard[3].counter = 2;
   gameBoard[row][col].userSelectCounter = 0;
   gameBoard[row][col].hit = false;
@@ -135,7 +135,7 @@ function theBattleShipGame() {
   if (completed) {
     for (let row = 0; row < gameBoard.length; row++) {
       for (let col = 0; col < gameBoard[row].length; col++) {
-        resetGameUpdates(gameBoard);
+        resetGameUpdates(gameBoard, row, col);
       }
     }
   }
